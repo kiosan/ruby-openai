@@ -50,7 +50,8 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters&.to_json
+        body: parameters&.to_json,
+        read_timeout: 120
       )
     end
 
@@ -59,6 +60,7 @@ module OpenAI
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
         body: parameters
+        
       )
     end
 
