@@ -1,6 +1,6 @@
 module OpenAI
   class Client
-    URI_BASE = "https://api.openai.com/".freeze
+    URI_BASE = "https://api.openai.com/v1/".freeze
 
     def initialize(access_token: nil, organization_id: nil)
       Ruby::OpenAI.configuration.access_token = access_token if access_token
@@ -9,6 +9,10 @@ module OpenAI
 
     def completions(parameters: {})
       OpenAI::Client.json_post(path: "/completions", parameters: parameters)
+    end
+    
+    def chat(parameters: {})
+      OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
     end
 
     def edits(parameters: {})
