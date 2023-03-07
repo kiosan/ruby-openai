@@ -1,6 +1,6 @@
 module OpenAI
   class Client
-    URI_BASE = "https://api.openai.com/v1/".freeze
+    URI_BASE = "https://api.openai.com/".freeze
 
     def initialize(access_token: nil, organization_id: nil)
       Ruby::OpenAI.configuration.access_token = access_token if access_token
